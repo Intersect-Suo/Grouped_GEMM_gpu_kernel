@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgrouped_gemm.a CMakeFiles/grouped_gemm.dir/src/grouped_gemm.cu.o
+/usr/bin/ranlib libgrouped_gemm.a

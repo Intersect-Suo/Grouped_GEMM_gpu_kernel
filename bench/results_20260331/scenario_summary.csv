@@ -1,0 +1,9 @@
+grid_workload_config,9,39.60,17.17,95.39
+scenario,runs,avg_speedup,min_speedup,max_speedup
+sweep_persistent_mixed_128x64x32,8,26.71,17.51,29.44
+sweep_persistent_tail_128x64x32,8,17.80,13.03,19.94
+sweep_problems_mixed_64x64x16,5,27.84,15.74,34.56
+sweep_problems_tail_128x64x32,5,15.32,10.16,19.18
+sweep_seed_mixed_64x64x16,5,30.78,25.48,36.34
+sweep_seed_tail_128x64x32,5,18.29,14.58,20.65
+sweep_warmup_iters,3,29.78,27.61,32.67

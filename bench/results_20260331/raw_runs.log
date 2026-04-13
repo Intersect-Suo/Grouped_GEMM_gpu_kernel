@@ -1,0 +1,624 @@
+===== RUN 1 =====
+scenario=grid_workload_config workload=small config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload small --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: small, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.041       0.041       0.830       300         144         1             0.103         
+sort_by_k               0.056       0.039       0.876       300         144         1             0.035         
+sort_by_tiles           0.064       0.037       0.930       300         144         1             0.035         
+sort_by_tiles_then_k    0.140       0.036       0.959       300         144         1             0.035         
+baseline_per_problem    0.000       3.434       0.010       300         0           256           0.000         
+
+===== RUN 2 =====
+scenario=grid_workload_config workload=small config=128x64x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload small --config 128x64x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: small, problems=256, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.040       0.070       0.490       300         72          1             0.100         
+sort_by_k               0.048       0.067       0.514       300         72          1             0.061         
+sort_by_tiles           0.047       0.068       0.509       300         72          1             0.061         
+sort_by_tiles_then_k    0.059       0.067       0.509       300         72          1             0.061         
+baseline_per_problem    0.000       3.502       0.010       300         0           256           0.000         
+
+===== RUN 3 =====
+scenario=grid_workload_config workload=small config=64x128x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload small --config 64x128x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: small, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 128, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.053       0.062       0.558       256         72          1             0.105         
+sort_by_k               0.052       0.059       0.586       256         72          1             0.071         
+sort_by_tiles           0.065       0.058       0.593       256         72          1             0.071         
+sort_by_tiles_then_k    0.058       0.058       0.589       256         72          1             0.071         
+baseline_per_problem    0.000       3.829       0.009       256         0           256           0.000         
+
+===== RUN 4 =====
+scenario=grid_workload_config workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.048       0.111       2.561       620         144         1             0.123         
+sort_by_k               0.084       0.104       2.741       620         144         1             0.012         
+sort_by_tiles           0.094       0.108       2.626       620         144         1             0.010         
+sort_by_tiles_then_k    0.093       0.113       2.519       620         144         1             0.010         
+baseline_per_problem    0.000       3.303       0.086       620         0           256           0.000         
+
+===== RUN 5 =====
+scenario=grid_workload_config workload=mixed config=128x64x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.064       0.140       2.033       457         72          1             0.117         
+sort_by_k               0.113       0.126       2.257       457         72          1             0.027         
+sort_by_tiles           0.052       0.136       2.094       457         72          1             0.018         
+sort_by_tiles_then_k    0.088       0.136       2.084       457         72          1             0.018         
+baseline_per_problem    0.000       3.692       0.077       457         0           256           0.000         
+
+===== RUN 6 =====
+scenario=grid_workload_config workload=mixed config=64x128x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x128x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 128, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.059       0.152       1.877       456         72          1             0.120         
+sort_by_k               0.096       0.142       2.002       456         72          1             0.028         
+sort_by_tiles           0.110       0.144       1.977       456         72          1             0.018         
+sort_by_tiles_then_k    0.099       0.157       1.815       456         72          1             0.018         
+baseline_per_problem    0.000       3.943       0.072       456         0           256           0.000         
+
+===== RUN 7 =====
+scenario=grid_workload_config workload=tail config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.127       0.188       4.504       630         144         1             0.065         
+sort_by_k               0.128       0.186       4.531       630         144         1             0.003         
+sort_by_tiles           0.069       0.211       4.005       630         144         1             0.003         
+sort_by_tiles_then_k    0.062       0.209       4.051       630         144         1             0.003         
+baseline_per_problem    0.000       3.193       0.265       630         0           256           0.000         
+
+===== RUN 8 =====
+scenario=grid_workload_config workload=tail config=128x64x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=256, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.142       0.212       3.988       447         72          1             0.069         
+sort_by_k               0.194       0.198       4.276       447         72          1             0.011         
+sort_by_tiles           0.132       0.259       3.261       447         72          1             0.011         
+sort_by_tiles_then_k    0.117       0.290       2.917       447         72          1             0.011         
+baseline_per_problem    0.000       3.755       0.225       447         0           256           0.000         
+
+===== RUN 9 =====
+scenario=grid_workload_config workload=tail config=64x128x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 64x128x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 128, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.052       0.223       3.791       444         72          1             0.064         
+sort_by_k               0.060       0.210       4.031       444         72          1             0.011         
+sort_by_tiles           0.062       0.228       3.700       444         72          1             0.011         
+sort_by_tiles_then_k    0.076       0.308       2.744       444         72          1             0.011         
+baseline_per_problem    0.000       3.721       0.227       444         0           256           0.000         
+
+===== RUN 10 =====
+scenario=sweep_problems_mixed_64x64x16 workload=mixed config=64x64x16 problems=64 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 64 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=64, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.061       0.039       2.039       162         144         1             0.110         
+sort_by_k               0.048       0.048       1.632       162         144         1             0.019         
+sort_by_tiles           0.054       0.042       1.881       162         144         1             0.012         
+sort_by_tiles_then_k    0.058       0.042       1.882       162         144         1             0.012         
+baseline_per_problem    0.000       0.614       0.129       162         0           64            0.000         
+
+===== RUN 11 =====
+scenario=sweep_problems_mixed_64x64x16 workload=mixed config=64x64x16 problems=128 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 128 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=128, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.058       0.056       2.235       300         144         1             0.128         
+sort_by_k               0.055       0.056       2.238       300         144         1             0.016         
+sort_by_tiles           0.081       0.052       2.414       300         144         1             0.012         
+sort_by_tiles_then_k    0.055       0.053       2.388       300         144         1             0.012         
+baseline_per_problem    0.000       1.495       0.084       300         0           128           0.000         
+
+===== RUN 12 =====
+scenario=sweep_problems_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.038       0.102       2.785       620         144         1             0.123         
+sort_by_k               0.086       0.095       2.992       620         144         1             0.012         
+sort_by_tiles           0.064       0.099       2.876       620         144         1             0.010         
+sort_by_tiles_then_k    0.055       0.100       2.849       620         144         1             0.010         
+baseline_per_problem    0.000       3.273       0.087       620         0           256           0.000         
+
+===== RUN 13 =====
+scenario=sweep_problems_mixed_64x64x16 workload=mixed config=64x64x16 problems=512 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.058       0.187       3.094       1220        144         1             0.093         
+sort_by_k               0.187       0.210       2.743       1220        144         1             0.016         
+sort_by_tiles           0.092       0.279       2.071       1220        144         1             0.012         
+sort_by_tiles_then_k    0.160       0.638       0.905       1220        144         1             0.012         
+baseline_per_problem    0.000       4.807       0.120       1220        0           512           0.000         
+
+===== RUN 14 =====
+scenario=sweep_problems_mixed_64x64x16 workload=mixed config=64x64x16 problems=1024 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 1024 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=1024, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.115       0.383       2.986       2435        144         1             0.095         
+sort_by_k               0.212       0.398       2.873       2435        144         1             0.017         
+sort_by_tiles           0.231       0.395       2.897       2435        144         1             0.012         
+sort_by_tiles_then_k    0.257       0.811       1.410       2435        144         1             0.012         
+baseline_per_problem    0.000       13.236      0.086       2435        0           1024          0.000         
+
+===== RUN 15 =====
+scenario=sweep_problems_tail_128x64x32 workload=tail config=128x64x32 problems=64 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 64 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=64, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.052       0.086       2.492       107         72          1             0.180         
+sort_by_k               0.040       0.096       2.242       107         72          1             0.010         
+sort_by_tiles           0.037       0.081       2.657       107         72          1             0.010         
+sort_by_tiles_then_k    0.030       0.080       2.687       107         72          1             0.010         
+baseline_per_problem    0.000       0.813       0.263       107         0           64            0.000         
+
+===== RUN 16 =====
+scenario=sweep_problems_tail_128x64x32 workload=tail config=128x64x32 problems=128 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 128 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=128, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.034       0.145       3.310       223         72          1             0.130         
+sort_by_k               0.047       0.122       3.932       223         72          1             0.009         
+sort_by_tiles           0.037       0.130       3.697       223         72          1             0.009         
+sort_by_tiles_then_k    0.051       0.163       2.949       223         72          1             0.009         
+baseline_per_problem    0.000       1.937       0.248       223         0           128           0.000         
+
+===== RUN 17 =====
+scenario=sweep_problems_tail_128x64x32 workload=tail config=128x64x32 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=256, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.051       0.212       3.984       447         72          1             0.069         
+sort_by_k               0.073       0.200       4.231       447         72          1             0.011         
+sort_by_tiles           0.139       0.269       3.139       447         72          1             0.011         
+sort_by_tiles_then_k    0.069       0.268       3.151       447         72          1             0.011         
+baseline_per_problem    0.000       3.836       0.220       447         0           256           0.000         
+
+===== RUN 18 =====
+scenario=sweep_problems_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.047       0.452       3.507       867         72          1             0.101         
+sort_by_k               0.088       0.702       2.257       867         72          1             0.011         
+sort_by_tiles           0.181       0.741       2.139       867         72          1             0.011         
+sort_by_tiles_then_k    0.109       0.731       2.168       867         72          1             0.011         
+baseline_per_problem    0.000       7.642       0.207       867         0           512           0.000         
+
+===== RUN 19 =====
+scenario=sweep_problems_tail_128x64x32 workload=tail config=128x64x32 problems=1024 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 1024 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=1024, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.186       1.055       2.922       1741        72          1             0.096         
+sort_by_k               0.268       1.319       2.337       1741        72          1             0.011         
+sort_by_tiles           0.271       1.363       2.262       1741        72          1             0.011         
+sort_by_tiles_then_k    0.281       1.442       2.138       1741        72          1             0.011         
+baseline_per_problem    0.000       15.253      0.202       1741        0           1024          0.000         
+
+===== RUN 20 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.180       0.283       2.041       915         72          1             0.094         
+sort_by_k               0.158       0.278       2.076       915         72          1             0.031         
+sort_by_tiles           0.142       0.274       2.106       915         72          1             0.018         
+sort_by_tiles_then_k    0.081       0.299       1.928       915         72          1             0.018         
+baseline_per_problem    0.000       7.142       0.081       915         0           512           0.000         
+
+===== RUN 21 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=24
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 24
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=24
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.049       0.459       1.258       915         24          1             0.094         
+sort_by_k               0.136       0.574       1.005       915         24          1             0.031         
+sort_by_tiles           0.122       0.616       0.937       915         24          1             0.018         
+sort_by_tiles_then_k    0.124       0.612       0.943       915         24          1             0.018         
+baseline_per_problem    0.000       8.038       0.072       915         0           512           0.000         
+
+===== RUN 22 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=48
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 48
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=48
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.094       0.319       1.811       915         48          1             0.094         
+sort_by_k               0.143       0.348       1.660       915         48          1             0.031         
+sort_by_tiles           0.101       0.483       1.195       915         48          1             0.018         
+sort_by_tiles_then_k    0.112       0.479       1.205       915         48          1             0.018         
+baseline_per_problem    0.000       8.077       0.071       915         0           512           0.000         
+
+===== RUN 23 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=72
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 72
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=72
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.060       0.276       2.090       915         72          1             0.094         
+sort_by_k               0.138       0.351       1.646       915         72          1             0.031         
+sort_by_tiles           0.165       0.548       1.053       915         72          1             0.018         
+sort_by_tiles_then_k    0.362       0.548       1.053       915         72          1             0.018         
+baseline_per_problem    0.000       8.061       0.072       915         0           512           0.000         
+
+===== RUN 24 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=96
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 96
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=96
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.086       0.283       2.039       915         96          1             0.094         
+sort_by_k               0.117       0.278       2.077       915         96          1             0.031         
+sort_by_tiles           0.096       0.274       2.106       915         96          1             0.018         
+sort_by_tiles_then_k    0.137       0.340       1.698       915         96          1             0.018         
+baseline_per_problem    0.000       7.993       0.072       915         0           512           0.000         
+
+===== RUN 25 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=120
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 120
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=120
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.063       0.279       2.069       915         120         1             0.094         
+sort_by_k               0.105       0.312       1.848       915         120         1             0.031         
+sort_by_tiles           0.119       0.447       1.292       915         120         1             0.018         
+sort_by_tiles_then_k    0.139       0.452       1.275       915         120         1             0.018         
+baseline_per_problem    0.000       8.116       0.071       915         0           512           0.000         
+
+===== RUN 26 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=144
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 144
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=144
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.061       0.277       2.083       915         144         1             0.094         
+sort_by_k               0.132       0.291       1.981       915         144         1             0.031         
+sort_by_tiles           0.144       0.542       1.064       915         144         1             0.018         
+sort_by_tiles_then_k    0.133       0.506       1.139       915         144         1             0.018         
+baseline_per_problem    0.000       8.154       0.071       915         0           512           0.000         
+
+===== RUN 27 =====
+scenario=sweep_persistent_mixed_128x64x32 workload=mixed config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=192
+cmd: ./build/bench_grouped_gemm --workload mixed --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 192
+Workload: mixed, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=192
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.049       0.276       2.090       915         192         1             0.094         
+sort_by_k               0.089       0.299       1.928       915         192         1             0.031         
+sort_by_tiles           0.095       0.298       1.937       915         192         1             0.018         
+sort_by_tiles_then_k    0.094       0.299       1.928       915         192         1             0.018         
+baseline_per_problem    0.000       7.697       0.075       915         0           512           0.000         
+
+===== RUN 28 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.170       0.444       3.574       867         72          1             0.101         
+sort_by_k               0.144       0.594       2.670       867         72          1             0.011         
+sort_by_tiles           0.126       0.672       2.359       867         72          1             0.011         
+sort_by_tiles_then_k    0.097       0.671       2.361       867         72          1             0.011         
+baseline_per_problem    0.000       7.959       0.199       867         0           512           0.000         
+
+===== RUN 29 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=24
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 24
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=24
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.050       0.605       2.620       867         24          1             0.101         
+sort_by_k               0.125       0.882       1.796       867         24          1             0.011         
+sort_by_tiles           0.116       0.859       1.845       867         24          1             0.011         
+sort_by_tiles_then_k    0.108       0.859       1.846       867         24          1             0.011         
+baseline_per_problem    0.000       7.885       0.201       867         0           512           0.000         
+
+===== RUN 30 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=48
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 48
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=48
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.064       0.449       3.529       867         48          1             0.101         
+sort_by_k               0.118       0.837       1.893       867         48          1             0.011         
+sort_by_tiles           0.164       0.776       2.042       867         48          1             0.011         
+sort_by_tiles_then_k    0.124       0.759       2.088       867         48          1             0.011         
+baseline_per_problem    0.000       7.860       0.202       867         0           512           0.000         
+
+===== RUN 31 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=72
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 72
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=72
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.059       0.438       3.619       867         72          1             0.101         
+sort_by_k               0.118       0.612       2.590       867         72          1             0.011         
+sort_by_tiles           0.122       0.682       2.326       867         72          1             0.011         
+sort_by_tiles_then_k    0.099       0.668       2.372       867         72          1             0.011         
+baseline_per_problem    0.000       8.015       0.198       867         0           512           0.000         
+
+===== RUN 32 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=96
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 96
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=96
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.111       0.421       3.763       867         96          1             0.101         
+sort_by_k               0.159       0.683       2.321       867         96          1             0.011         
+sort_by_tiles           0.101       0.680       2.333       867         96          1             0.011         
+sort_by_tiles_then_k    0.097       0.665       2.383       867         96          1             0.011         
+baseline_per_problem    0.000       7.819       0.203       867         0           512           0.000         
+
+===== RUN 33 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=120
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 120
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=120
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.050       0.435       3.640       867         120         1             0.101         
+sort_by_k               0.093       0.711       2.230       867         120         1             0.011         
+sort_by_tiles           0.133       0.767       2.067       867         120         1             0.011         
+sort_by_tiles_then_k    0.109       0.735       2.156       867         120         1             0.011         
+baseline_per_problem    0.000       7.586       0.209       867         0           512           0.000         
+
+===== RUN 34 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=144
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 144
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=144
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.063       0.420       3.776       867         144         1             0.101         
+sort_by_k               0.179       0.401       3.952       867         144         1             0.011         
+sort_by_tiles           0.095       0.396       4.005       867         144         1             0.011         
+sort_by_tiles_then_k    0.318       0.710       2.233       867         144         1             0.011         
+baseline_per_problem    0.000       7.897       0.201       867         0           512           0.000         
+
+===== RUN 35 =====
+scenario=sweep_persistent_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=192
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 192
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=192
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.060       0.420       3.773       867         192         1             0.101         
+sort_by_k               0.127       0.399       3.977       867         192         1             0.011         
+sort_by_tiles           0.182       0.598       2.651       867         192         1             0.011         
+sort_by_tiles_then_k    0.242       0.792       2.001       867         192         1             0.011         
+baseline_per_problem    0.000       7.847       0.202       867         0           512           0.000         
+
+===== RUN 36 =====
+scenario=sweep_seed_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=1 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 1 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.038       0.097       2.768       617         144         1             0.111         
+sort_by_k               0.058       0.092       2.920       617         144         1             0.010         
+sort_by_tiles           0.053       0.096       2.783       617         144         1             0.010         
+sort_by_tiles_then_k    0.058       0.096       2.776       617         144         1             0.010         
+baseline_per_problem    0.000       2.545       0.105       617         0           256           0.000         
+
+===== RUN 37 =====
+scenario=sweep_seed_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.076       0.103       2.771       620         144         1             0.123         
+sort_by_k               0.051       0.095       2.986       620         144         1             0.012         
+sort_by_tiles           0.078       0.099       2.868       620         144         1             0.010         
+sort_by_tiles_then_k    0.063       0.100       2.852       620         144         1             0.010         
+baseline_per_problem    0.000       3.083       0.092       620         0           256           0.000         
+
+===== RUN 38 =====
+scenario=sweep_seed_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=20260328 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 20260328 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.067       0.099       2.925       612         144         1             0.083         
+sort_by_k               0.084       0.095       3.074       612         144         1             0.016         
+sort_by_tiles           0.084       0.100       2.904       612         144         1             0.011         
+sort_by_tiles_then_k    0.082       0.099       2.933       612         144         1             0.011         
+baseline_per_problem    0.000       3.037       0.096       612         0           256           0.000         
+
+===== RUN 39 =====
+scenario=sweep_seed_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=777 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 777 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.043       0.101       2.965       593         144         1             0.078         
+sort_by_k               0.053       0.096       3.115       593         144         1             0.015         
+sort_by_tiles           0.053       0.103       2.903       593         144         1             0.011         
+sort_by_tiles_then_k    0.104       0.102       2.927       593         144         1             0.011         
+baseline_per_problem    0.000       3.489       0.086       593         0           256           0.000         
+
+===== RUN 40 =====
+scenario=sweep_seed_mixed_64x64x16 workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=20260331 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 20260331 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.053       0.103       2.963       582         144         1             0.072         
+sort_by_k               0.053       0.095       3.185       582         144         1             0.013         
+sort_by_tiles           0.056       0.100       3.025       582         144         1             0.010         
+sort_by_tiles_then_k    0.087       0.100       3.032       582         144         1             0.010         
+baseline_per_problem    0.000       2.421       0.125       582         0           256           0.000         
+
+===== RUN 41 =====
+scenario=sweep_seed_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=1 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 1 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.062       0.397       3.954       876         72          1             0.058         
+sort_by_k               0.147       0.628       2.500       876         72          1             0.011         
+sort_by_tiles           0.274       0.639       2.456       876         72          1             0.011         
+sort_by_tiles_then_k    0.157       0.665       2.361       876         72          1             0.011         
+baseline_per_problem    0.000       7.808       0.201       876         0           512           0.000         
+
+===== RUN 42 =====
+scenario=sweep_seed_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.132       0.438       3.620       867         72          1             0.101         
+sort_by_k               0.125       0.641       2.474       867         72          1             0.011         
+sort_by_tiles           0.124       0.764       2.074       867         72          1             0.011         
+sort_by_tiles_then_k    0.114       0.739       2.146       867         72          1             0.011         
+baseline_per_problem    0.000       7.845       0.202       867         0           512           0.000         
+
+===== RUN 43 =====
+scenario=sweep_seed_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=20260328 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 20260328 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.064       0.383       3.829       851         72          1             0.084         
+sort_by_k               0.112       0.369       3.982       851         72          1             0.012         
+sort_by_tiles           0.121       0.399       3.679       851         72          1             0.012         
+sort_by_tiles_then_k    0.103       0.658       2.231       851         72          1             0.012         
+baseline_per_problem    0.000       7.620       0.193       851         0           512           0.000         
+
+===== RUN 44 =====
+scenario=sweep_seed_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=777 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 777 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.395       0.394       3.710       841         72          1             0.108         
+sort_by_k               2.236       0.743       1.967       841         72          1             0.012         
+sort_by_tiles           0.397       0.700       2.090       841         72          1             0.012         
+sort_by_tiles_then_k    0.446       0.691       2.117       841         72          1             0.012         
+baseline_per_problem    0.000       5.746       0.254       841         0           512           0.000         
+
+===== RUN 45 =====
+scenario=sweep_seed_tail_128x64x32 workload=tail config=128x64x32 problems=512 warmup=10 iters=50 seed=20260331 persistent=0
+cmd: ./build/bench_grouped_gemm --workload tail --config 128x64x32 --problems 512 --warmup 10 --iters 50 --seed 20260331 --persistent-ctas 0
+Workload: tail, problems=512, warmup=10, iters=50
+Kernel config: CTA(128, 64, 32), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=3, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.092       0.414       3.920       883         72          1             0.058         
+sort_by_k               0.128       0.776       2.093       883         72          1             0.011         
+sort_by_tiles           0.101       0.781       2.078       883         72          1             0.011         
+sort_by_tiles_then_k    0.127       0.744       2.183       883         72          1             0.011         
+baseline_per_problem    0.000       7.708       0.211       883         0           512           0.000         
+
+===== RUN 46 =====
+scenario=sweep_warmup_iters workload=mixed config=64x64x16 problems=256 warmup=5 iters=20 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 5 --iters 20 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=5, iters=20
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.033       0.103       2.766       620         144         1             0.123         
+sort_by_k               0.092       0.095       2.998       620         144         1             0.012         
+sort_by_tiles           0.047       0.100       2.831       620         144         1             0.010         
+sort_by_tiles_then_k    0.042       0.099       2.880       620         144         1             0.010         
+baseline_per_problem    0.000       2.760       0.103       620         0           256           0.000         
+
+===== RUN 47 =====
+scenario=sweep_warmup_iters workload=mixed config=64x64x16 problems=256 warmup=10 iters=50 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 10 --iters 50 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=10, iters=50
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.092       0.102       2.797       620         144         1             0.123         
+sort_by_k               0.084       0.095       2.987       620         144         1             0.012         
+sort_by_tiles           0.082       0.099       2.870       620         144         1             0.010         
+sort_by_tiles_then_k    0.068       0.100       2.851       620         144         1             0.010         
+baseline_per_problem    0.000       2.623       0.108       620         0           256           0.000         
+
+===== RUN 48 =====
+scenario=sweep_warmup_iters workload=mixed config=64x64x16 problems=256 warmup=20 iters=100 seed=42 persistent=0
+cmd: ./build/bench_grouped_gemm --workload mixed --config 64x64x16 --problems 256 --warmup 20 --iters 100 --seed 42 --persistent-ctas 0
+Workload: mixed, problems=256, warmup=20, iters=100
+Kernel config: CTA(64, 64, 16), threads=256, persistent_ctas=0
+Occupancy estimate: active_blocks_per_sm=6, sm_count=24
+mode                    prep_ms     kernel_ms   tflops      tiles       grid_ctas   launches      tail_share    
+none                    0.039       0.102       2.784       620         144         1             0.123         
+sort_by_k               0.061       0.095       2.986       620         144         1             0.012         
+sort_by_tiles           0.056       0.113       2.528       620         144         1             0.010         
+sort_by_tiles_then_k    0.091       0.145       1.961       620         144         1             0.010         
+baseline_per_problem    0.000       3.104       0.092       620         0           256           0.000         
+
